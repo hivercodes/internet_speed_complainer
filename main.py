@@ -5,9 +5,16 @@ from selenium.webdriver.common.by import By
 import time
 PROMISED_DOWN = 500
 PROMISED_UP = 50
+#get twitter login
+auth = []
+with open("../api/twitter") as file:
+    d = file.readlines()
+    for dat in d:
+        auth.append(str(dat.strip("\n")))
 
+print(auth)
 
-
+#get web speed data
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 driver.get("https://www.speedtest.net/")
